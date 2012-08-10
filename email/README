@@ -1,0 +1,10 @@
+Email is a little python script to forward all messages sent to a specific E-Mail to all people listed in a file
+
+TODO: 
+	There is so much to do here
+	* Add the Get Mail support so that we will actually forward :D
+	* Add a mediawiki front-end
+	* Do some code cleaning
+
+Post scriptum
+I'm just posting this here in this state of work to populate my misc/ repo a bit ;)
