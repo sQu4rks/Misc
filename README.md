@@ -15,8 +15,7 @@ backgroundChanger
 backgroundChanger is a python script that automatically pulls the hottest pictures from a given subreddit(e.g. EarthPorn). One 
 can then have his windowmanager change the pictures automatically.
 For awesome this is the lua code needed
-'''lua
-
+```lua
 -- {{{ Function definitions
 
 -- scan directory, and optionally filter outputs
@@ -66,5 +65,5 @@ end)
  
 -- initial start when rc.lua is first run
 wp_timer:start()
-'''
+```
 (Taken from https://wiki.archlinux.org/index.php/Awesome)
