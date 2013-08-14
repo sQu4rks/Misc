@@ -67,3 +67,4 @@ end)
 wp_timer:start()
 ```
 (Taken from https://wiki.archlinux.org/index.php/Awesome)
+This script is tested with python2.7 and requires urlgrabber,configparser and praw to be installed
