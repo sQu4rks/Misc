@@ -68,3 +68,12 @@ wp_timer:start()
 ```
 (Taken from https://wiki.archlinux.org/index.php/Awesome)
 This script is tested with python2.7 and requires urlgrabber,configparser and praw to be installed
+
+sentSerial
+==========
+
+Sentserial is an easy to use serial interface for python applications. 
+Usage: 
+	python2.7 sentSerial.py SERIALCOMMAND
+	
+
