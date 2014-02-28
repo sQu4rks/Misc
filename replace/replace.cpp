@@ -19,8 +19,35 @@
 #include <string>
 #include <sstream>
 #include <vector>
-using namespace std;
+#include <map>
 
+using namespace std;
+// Define a Replacemap
+typedef map<string,string> TOptionMap;
+typedef pair<string,string> TOptionPair;
+
+vector<string> splitString(string str,string delim)
+{
+	vector<string> retrieved;
+	size_t pos = str.find_first_of( delim.c_str() );
+
+	while( !str.empty() )
+	{
+		string cur = str.substr( 0,pos);
+		if( !cur.empty() )
+		{
+			retrieved.push_back(cur);
+		}
+		if( pos == string::npos )
+		{
+			break;
+		}
+		str = str.substr(pos+1);
+		pos = str.find_first_of(delim);
+	}
+	
+	return retrieved;
+}
 int main(int argc, char** argv)
 {
 	// Check amount of arguments
@@ -85,5 +112,20 @@ int main(int argc, char** argv)
 		}	
 		
 		// Now split these options and write them to an map
+		TOptionMap replaceMap;
+		for( int i=0;i<splitVector.size();i++)
+		{
+			// Split for key-value 
+			string delim = ":";
+			size_t pos = 0;
+			string token;
+			vector<string> splitResult;
+		
+			splitResult = splitString(splitVector[i],":");
+			for(int c=0;c<splitResult.size();c++)
+			{
+				cout << splitResult[c] << endl;
+			}
+		}
 	}
 }
