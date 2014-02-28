@@ -11,7 +11,6 @@
  *       Compiler:  gcc
  *
  *         Author:  Marcel Neidinger (mn), neidinger@phaenovum.de
- *        Company:  phaenovum Schülerforschungszentrum, Lörrach
  *
  * =====================================================================================
  */
