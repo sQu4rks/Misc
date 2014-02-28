@@ -104,6 +104,14 @@ int main(int argc, char** argv)
 			ss << argv[i];
 		}	
 		string replaceString = ss.str();
+		
+		// Check if replaceString ends with ','
+		// @TODO: Find a better solution for this error
+		cout << "End: " << replaceString.at(replaceString.length() - 1) << endl;
+		if( replaceString.at(replaceString.length() - 1) != "," )
+		{
+			replaceString.append(",");
+		}	
 		cout << "Using " << replaceString << " as the replaceoptions string" << endl;
 		
 		// Parsing the replaceString	
