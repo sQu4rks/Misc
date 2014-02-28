@@ -142,5 +142,21 @@ int main(int argc, char** argv)
 
 		ofstream outFile(outfile.c_str(),ios::app);
 		cout << "Opened " << outfile << " as Output" << endl;
+
+		// Loop over infile
+		string line;
+		while( getline(inFile,line) )
+		{
+			string temp = line;
+			for( TIterator iterator = map.begin();iterator != map.end(); iterator++ )
+			{
+				// Replace every option in Map
+				temp = temp.replace(temp.begin(), temp.end(),iterator->first,iterator->second);
+			}
+			// Now replace special chars
+			temp.replace(temp.begin(), temp.end(),"_"," ");
+			// Write to outfile
+			cout << temp << endl;
+		}
 	}
 }
