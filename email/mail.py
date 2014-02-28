@@ -25,13 +25,13 @@ import smtplib
 
 # Variable defintions, set theme as you need theme
 # Your smtp server to send the mails to
-SMTPAdr="smtp.something.de"
+SMTPAdr="mail.sfz-bw.de"
 # Your imap server to get the mails from
-IMAPAdr="imap.something.de"
+IMAPAdr="mail.sfz-bw.de"
 # The mail adresse you wish to use
-MAILAdr="mail@intertopia.de"
+MAILAdr="marcel.neidinger@sfz-bw.de"
 # The coressponding password for the mail adress
-PASS="SomeREALLYCreepyPassword"
+PASS="31415926"
 # The name of your mail list file
 LFILE="mail_list.txt"
 
@@ -66,7 +66,7 @@ def sendMail(sender,reason,mail):
 	log("Mit SMTP Server verbunden")
 	
 	# Header konstruieren
-	header = 'To:' + "someone@someone.de" + '\n' + 'From: ' + sender + '\n' + 'Subject:'+ reason + ' \n'
+	header = 'To:' + "someone@someone.de" + '\n' + 'From: nicole-neuser@web.de' + '\n' + 'Subject:'+ reason + ' \n'
 	
 	# Nachricht zusammensetzen
 	msg = header + mail

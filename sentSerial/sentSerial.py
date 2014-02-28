@@ -1,31 +1,24 @@
-#!/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from Tkinter import *
-import serial,sys
+import serial,sys,getopt
 
-master = Tk()
-port='/dev/cu.usbmodem1411'
-ser = serial.Serial(port,9600)
+def usage():
+	print "Usage: sentSerial.py [options] COMMAND"
+	print " -h --help \t Print help message"
+	print " -p --port \t Set the serial port"
 
-def shutter():
-	print "Shutter now"
-	ser.write('t')
-def shutterDelayed():
-	print "Shutter delayed"
-	ser.write('d')
-master.config(width=250)
-
-title = Label(master,text="aeAuslöser")
-title.pack()
-
-b1 = Button(master,text="Shutter",command=shutter)
-b1.pack(side=LEFT,fill=X)
-
-b2 = Button(master,text="Delayed",command=shutterDelayed)
-b2.pack(side=LEFT,fill=X)
-
-port = Label(master,text="On: " + port)
-port.pack(side=BOTTOM)
-
-mainloop()
+if __name__ == "__main__":
+	# Strip away last argument
+	argArray = sys.argv[1:len(sys.argv)-1]
+	command = sys.argv[len(sys.argv)-1]
+	
+	# Parse command line arguments
+        try:                
+		opts,args = getopt.getopt(argArray,"h",["help"])
+	except getopt.GetoptError as err:
+ 		sys.exit(-1)
+	for o,a in opts:
+ 		if o in ("-h","--help"):
+ 			usage()
+			sys.exit(-1)
