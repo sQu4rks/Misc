@@ -82,7 +82,7 @@ Replace is a little c++ tool to replace strings in a textfile. It's designed for
 
 Installation:
 	
-	```sh
+	```
 	make
 	sudo make install
 	```
