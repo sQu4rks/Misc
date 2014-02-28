@@ -22,9 +22,11 @@
 #include <map>
 
 using namespace std;
+
 // Define a Replacemap
 typedef map<string,string> TOptionMap;
 typedef pair<string,string> TOptionPair;
+typedef map<string,string>::iterator TIterator;
 
 vector<string> splitString(string str,string delim)
 {
@@ -47,6 +49,14 @@ vector<string> splitString(string str,string delim)
 	}
 	
 	return retrieved;
+}
+
+void printMap(TOptionMap map)
+{
+	for( TIterator iterator = map.begin();iterator != map.end(); iterator++ )
+	{
+		cout << iterator->first << " --> " << iterator->second << endl; 
+	}
 }
 int main(int argc, char** argv)
 {
@@ -122,10 +132,15 @@ int main(int argc, char** argv)
 			vector<string> splitResult;
 		
 			splitResult = splitString(splitVector[i],":");
-			for(int c=0;c<splitResult.size();c++)
-			{
-				cout << splitResult[c] << endl;
-			}
+			replaceMap.insert(TOptionPair(splitResult[0],splitResult[1]));
 		}
+		printMap(replaceMap);
+		
+		// Now read the files 
+		ifstream inFile(infile.c_str());
+		cout << "Opened " << infile << " as Input" << endl;
+
+		ofstream outFile(outfile.c_str(),ios::app);
+		cout << "Opened " << outfile << " as Output" << endl;
 	}
 }
