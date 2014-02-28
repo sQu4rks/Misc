@@ -75,5 +75,13 @@ sentSerial
 Sentserial is an easy to use serial interface for python applications. 
 Usage: 
 	python2.7 sentSerial.py SERIALCOMMAND
-	
 
+replaceIt
+=======
+Replace is a little c++ tool to replace strings in a textfile. It's designed for auto-generated letters and similar things
+Installation:
+	make
+	sudo make install
+Usage:
+	replaceIt --help 
+	Will print all necessery information
