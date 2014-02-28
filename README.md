@@ -88,5 +88,6 @@ Installation:
 	```
 
 Usage:
-	replaceIt --help 
+	
+	> replaceIt --help 
 	Will print all necessery information
