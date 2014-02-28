@@ -165,7 +165,7 @@ int main(int argc, char** argv)
 				line.replace( pos,1," " );
 			}
 			// Writing to new file
-			outFile << line;
+			outFile << line << endl;
 		}
 	}
 }
