@@ -108,7 +108,13 @@ int main(int argc, char** argv)
 		// Check if replaceString ends with ','
 		// @TODO: Find a better solution for this error
 		cout << "End: " << replaceString.at(replaceString.length() - 1) << endl;
-		if( replaceString.at(replaceString.length() - 1) != "," )
+		char endLetter = replaceString.at(replaceString.length() - 1);
+		
+		stringstream st;
+		st << endLetter;
+		string endLetterString = st.str();
+	
+		if( endLetterString != "," )
 		{
 			replaceString.append(",");
 		}	
