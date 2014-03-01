@@ -81,11 +81,13 @@ replaceIt
 Replace is a little c++ tool to replace strings in a textfile. It's designed for auto-generated letters and similar things
 
 Installation:
-	```bash
+	
+	```
 	make
 	sudo make install
 	```
 
 Usage:
-	replaceIt --help 
+	
+	> replaceIt --help 
 	Will print all necessery information
