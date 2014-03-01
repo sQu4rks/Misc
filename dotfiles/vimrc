@@ -22,3 +22,20 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 " Enable TAB as completer
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+" Conque 
+let g:ConqueTerm_FastMode = 0
+let g:ConqueTerm_ExecFileKey = '<F11>'
+" Easier split navigation
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
+nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
+nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
+nmap <silent> <c-l> :wincmd l<CR>
+" Dedicate a shortcut to compiling latex documents
+nmap <silent> <c-r> :!pdflatex %
+" Enable python omnicomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+" Use pdf viewer
+command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+" Activate astyle for c++ by default
+autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4pb
