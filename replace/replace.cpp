@@ -180,5 +180,8 @@ int main(int argc, char** argv)
 			// Writing to new file
 			outFile << line << endl;
 		}
+		// Close Files
+		inFile.close();
+		outFile.close();
 	}
 }
