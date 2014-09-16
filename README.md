@@ -91,3 +91,11 @@ Usage:
 	
 	> replaceIt --help 
 	Will print all necessery information
+
+OpenCV on 'Buntu
+================
+A little script to install OpenCV on Ubuntu machines either all by the script or you can choose from the steps(*Install dependencies*, *Fetch OpenCV*, *Configure OpenCV*, *Compile & Install*) using the s Option
+
+Usage:
+	> bash install.sh h
+	Will print all informations
