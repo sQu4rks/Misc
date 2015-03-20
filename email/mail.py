@@ -31,7 +31,7 @@ IMAPAdr="mail.sfz-bw.de"
 # The mail adresse you wish to use
 MAILAdr="marcel.neidinger@sfz-bw.de"
 # The coressponding password for the mail adress
-PASS="31415926"
+PASS="Blub'
 # The name of your mail list file
 LFILE="mail_list.txt"
 
