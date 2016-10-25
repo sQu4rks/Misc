@@ -1,41 +1,48 @@
+" Configure vundle
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 set number
+" let Vundle manage plugins
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+
+" Install snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+" Install python completion
+Plugin 'davidhalter/jedi-vim'
+
+" End Vundle plugin list
+call vundle#end()
+filetype plugin indent on
+" Enable Syntax Highlighting
 syntax on
+" Enable Plugins
 filetype plugin on
-" configure tags for omnicomplete
-set tags +=~/.vim/tags/cpp
-set tags +=~/.vim/tags/opencv
-set tags +=~/.vim/tags/opencv2
-" OmniCppComplete
-set omnifunc=syntaxcomplete
-" Set nicer color for pmenu
-highlight Pmenu ctermbg=238 gui=bold
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-" Enable TAB as completer
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-" Conque 
-let g:ConqueTerm_FastMode = 0
-let g:ConqueTerm_ExecFileKey = '<F11>'
-" Easier split navigation
-" Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>                                                                                                                       
-nmap <silent> <c-j> :wincmd j<CR>                                                                                                                       
-nmap <silent> <c-h> :wincmd h<CR>                                                                                                                       
-nmap <silent> <c-l> :wincmd l<CR>
-" Dedicate a shortcut to compiling latex documents
-nmap <silent> <c-r> :!pdflatex %
-" Enable python omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-" Use pdf viewer
-command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
-" Activate astyle for c++ by default
-autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4pb
+" Enable automatic indention
+filetype indent on
+" Fix backspace error
+set backspace=indent,eol,start
+" Set color scheme
+colorscheme jellybeans
+" Set space as leader key
+let mapleader = "\<Space>"
+" Do some custome mappings
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>o :CtrlP<CR>
+" Copy & paste to system clipboard with <Space>p and <Space>y
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+" Go into visual mode with <Space><Space>
+nmap <Leader><Leader> V
+set tabstop=2
