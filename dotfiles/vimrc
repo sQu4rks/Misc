@@ -1,48 +1,80 @@
-" Configure vundle
-set nocompatible
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" configure zsh to come up when pressin ctrl + d
+noremap <C-d> :sh<cr>
+" set a line at 80 chars
+set colorcolumn=80
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-set number
-" let Vundle manage plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'preservim/nerdtree'
+Plugin 'nvie/vim-flake8'
+Plugin 'danilo-augusto/vim-afterglow'
 
-" Install snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-" Install python completion
-Plugin 'davidhalter/jedi-vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
-" End Vundle plugin list
-call vundle#end()
-filetype plugin indent on
-" Enable Syntax Highlighting
-syntax on
-" Enable Plugins
-filetype plugin on
-" Enable automatic indention
-filetype indent on
-" Fix backspace error
-set backspace=indent,eol,start
 " Set color scheme
-colorscheme jellybeans
-" Set space as leader key
-let mapleader = "\<Space>"
-" Do some custome mappings
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>o :CtrlP<CR>
-" Copy & paste to system clipboard with <Space>p and <Space>y
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-" Go into visual mode with <Space><Space>
-nmap <Leader><Leader> V
-set tabstop=2
+colorscheme afterglow
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+syntax on
+
+" Enable splitting and navigation between splits
+set splitbelow
+set splitright
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Use utf-6
+set encoding=utf-8
+
+" python PEP9 configuration
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" Make python code look pretty
+let python_highlight_all=1
+syntax on
+
+" web dev configuration
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+" configure ycompleteme
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
